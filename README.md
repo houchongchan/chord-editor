@@ -1,2 +1,1 @@
-# svg-editor
-# text-editor
+# chords-editor

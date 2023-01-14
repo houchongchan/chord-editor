@@ -1,22 +1,47 @@
-import Cookies from "js-cookie";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { v1 as uuid } from "uuid";
+import { guitarFret } from "./Utils";
+import Chord from "@tombatossals/react-chords/lib/Chord";
+import TabSheet from "../TabSheet";
+import { chordsArray, guitarConfig } from "./Config";
 
-export default function DiagnosticsView() {
+export default function App() {
+	const [chords, setChords] = useState([]);
+	const [sheetChords, setSheetChords] = useState([]);
+
+	useEffect(() => {
+		const chordsList = guitarFret();
+		setChords(chordsList);
+	}, []);
+
+	const onClick = (i) => {
+		const singleChord = chordsArray[i];
+		console.log(singleChord);
+		const tmp = [...sheetChords, singleChord];
+		console.log(tmp);
+		setSheetChords(tmp);
+	};
+
 	return (
 		<Container>
-			<Text>Container</Text>
-			<Body>Hello </Body>
+			<ChordContainer>
+				{chords.map((e, i) => {
+					return (
+						<ChordWrapper key={i} onClick={() => onClick(i)}>
+							<Chord chord={e} instrument={guitarConfig} lite={false} />
+						</ChordWrapper>
+					);
+				})}
+			</ChordContainer>
+			<Body>
+				<TabSheet chords={sheetChords} />
+			</Body>
 		</Container>
 	);
 }
 
 const Body = styled.div`
 	display: flex;
-	height: 100%;
-	margin-top: 4px;
-	position: relative;
 	color: var(--white);
 `;
 
@@ -52,7 +77,7 @@ const Button = styled.div`
 `;
 
 const Container = styled.div`
-	background-color: var(--black2);
+	background-color: var(--white);
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
@@ -60,15 +85,18 @@ const Container = styled.div`
 	position: relative;
 `;
 
-const ModalContainer = styled.div`
+const ChordContainer = styled.div`
 	align-items: center;
 	background: rgba(0, 0, 0, 0.5);
 	display: flex;
 	justify-content: center;
-	height: 100vh;
-	position: absolute;
-	width: 100vw;
-	z-index: 105;
+	width: 50vw;
+	height: 50vh;
+`;
+
+const ChordWrapper = styled.div`
+	width: 100px;
+	height 100px;
 `;
 
 const View = styled.div`
