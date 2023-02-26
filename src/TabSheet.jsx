@@ -8,9 +8,9 @@ export default function TabSheet(props) {
 		<Container>
 			{chords.map((e, i) => {
 				return (
-					<ChordWrapper key={i}>
+					<ChordContainer key={i}>
 						<Chord chord={e} instrument={guitarConfig} lite={false} />
-					</ChordWrapper>
+					</ChordContainer>
 				);
 			})}
 		</Container>
@@ -18,10 +18,21 @@ export default function TabSheet(props) {
 }
 
 const Container = styled.div`
-	height: 900px;
-	width: 900px;
+	align-self: center;
+	background: white;
+	border: solid 2px skyblue;
+	display: grid;
+	gap: 30px 15px;
+	grid-auto-rows: 100px;
+	grid-template-columns: repeat(5, 1fr);
+	min-height: 600px;
+	padding: 16px;
+	width: 80%;
 `;
-const ChordWrapper = styled.div`
-	width: 100px;
-	height 100px;
+
+const ChordContainer = styled.div`
+	align-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 `;
