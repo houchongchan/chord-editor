@@ -4,7 +4,6 @@ import { guitarConfig } from "./components/Config";
 
 export default function TabSheet(props) {
 	const { chords } = props;
-	console.log(chords);
 	return (
 		<Container>
 			{chords.map((e, i) => {

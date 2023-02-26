@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { guitarFret } from "./Utils";
 import Chord from "@tombatossals/react-chords/lib/Chord";
@@ -16,20 +16,21 @@ export default function App() {
 
 	const onClick = (i) => {
 		const singleChord = chordsArray[i];
-		console.log(singleChord);
 		const tmp = [...sheetChords, singleChord];
-		console.log(tmp);
 		setSheetChords(tmp);
 	};
 
 	return (
 		<Container>
+			<Title> Tab Sheet Generator</Title>
 			<ChordContainer>
 				{chords.map((e, i) => {
 					return (
-						<ChordWrapper key={i} onClick={() => onClick(i)}>
-							<Chord chord={e} instrument={guitarConfig} lite={false} />
-						</ChordWrapper>
+						<>
+							<ChordWrapper key={i} onClick={() => onClick(i)}>
+								<Chord chord={e} instrument={guitarConfig} lite={false} />
+							</ChordWrapper>
+						</>
 					);
 				})}
 			</ChordContainer>
@@ -39,6 +40,8 @@ export default function App() {
 		</Container>
 	);
 }
+
+const Title = styled.div``;
 
 const Body = styled.div`
 	display: flex;
