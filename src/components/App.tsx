@@ -1,27 +1,28 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import type {FC} from "react"; 
+import { useCallback, useEffect, useRef, useState }  from "react";
 import styled from "styled-components";
-import { guitarFret } from "./Utils";
 import { toPng } from "html-to-image";
 import Chord from "@tombatossals/react-chords/lib/Chord";
 import TabSheet from "../TabSheet";
 import { chordsArray, guitarConfig } from "./Config";
 import { ReactComponent as Download } from "./icons/download.svg";
+import { Chords, Props } from "./Interfaces";
 
-export default function App() {
-	const [chords, setChords] = useState([]);
-	const [sheetChords, setSheetChords] = useState([]);
+const App: FC<Props> = (): JSX.Element => {
+	const [chords, setChords] = useState<Chords[]>([]);
+	const [sheetChords, setSheetChords] = useState<Chords[]>([]);
 
-	const printRef = useRef();
+	const printRef = useRef<HTMLElement>(null);
 	const chordLengthRef = useRef(sheetChords);
 	chordLengthRef.current = sheetChords;
 
 	useEffect(() => {
-		const chordsList = guitarFret();
+		const chordsList: Chords[] = chordsArray;
 		setChords(chordsList);
 	}, []);
 
-	const onClick = (i) => {
-		const singleChord = chordsArray[i];
+	const onClick = (i: number) => {
+		const singleChord: Chords = chordsArray[i];
 		const tmp = [...sheetChords, singleChord];
 		setSheetChords(tmp);
 	};
@@ -72,7 +73,9 @@ export default function App() {
 			</Body>
 		</Container>
 	);
-}
+};
+
+export default App;
 
 const Body = styled.div`
 	display: flex;
