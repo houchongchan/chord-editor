@@ -1,9 +1,9 @@
-import { chordsArray } from "./Config";
-import { Chords } from "./types";
+import { chordsArray } from './Config'
+import { Chords } from './Interfaces'
 
 const guitarFret = () => {
-	const chordsList: Chords[] = chordsArray;
-	return chordsList;
-};
+    const chordsList: Chords[] = chordsArray
+    return chordsList
+}
 
-export { guitarFret, };
+export { guitarFret }

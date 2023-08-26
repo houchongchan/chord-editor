@@ -1,15 +1,15 @@
 version: '3'
 
 services:
-  run:
-    build: .
-    image: app
-    command: |
-      sh -c '
-        npm install
-        npm start
-      '
-    ports:
-      - 4000:3000
-    volumes:
-      - ./:/app
+    run:
+        build: .
+        image: app
+        command: |
+            sh -c '
+              npm install
+              npm start
+            '
+        ports:
+            - 4000:3000
+        volumes:
+            - ./:/app
