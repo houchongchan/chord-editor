@@ -86,6 +86,7 @@ const Body = styled.div`
     ${flexColumnCenter}
     color: var(--white);
     width: 100%;
+    margin-top: 50px;
 `
 
 const Row = styled.div`
@@ -96,7 +97,8 @@ const Row = styled.div`
 
 const Title = styled.div`
     font-size: 32px;
-    margin: 32px 0px 16px;
+    color: darkblue;
+    margin: 16px 0px;
     text-align: center;
 `
 
