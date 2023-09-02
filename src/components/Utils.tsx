@@ -1,8 +1,8 @@
 import { chordsArray } from './Config'
-import { Chords } from './Interfaces'
+import { Chord } from './Interfaces'
 
 const guitarFret = () => {
-    const chordsList: Chords[] = chordsArray
+    const chordsList: Chord[] = chordsArray
     return chordsList
 }
 

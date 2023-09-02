@@ -8,6 +8,14 @@ module.exports = {
             standard: ['E', 'A', 'D', 'G', 'B', 'E'],
         },
     },
+    defaultChord: {
+        key: '',
+        frets: [0, 0, 0, 0, 0, 0],
+        fingers: [0, 0, 0, 0, 0, 0],
+        barres: [],
+        capo: false,
+        baseFret: 0,
+    },
     chordsArray: [
         {
             key: 'a',
@@ -46,6 +54,27 @@ module.exports = {
         },
         {
             key: 'f',
+            frets: [1, 3, 3, 2, 1, 1],
+            fingers: [1, 3, 4, 2, 1, 1],
+            barres: [1],
+            capo: false,
+        },
+        {
+            key: 'f',
+            frets: [1, 3, 3, 2, 1, 1],
+            fingers: [1, 3, 4, 2, 1, 1],
+            barres: [1],
+            capo: false,
+        },
+        {
+            key: 'f',
+            frets: [1, 3, 3, 2, 1, 1],
+            fingers: [1, 3, 4, 2, 1, 1],
+            barres: [1],
+            capo: false,
+        },
+        {
+            key: 'f2',
             frets: [1, 3, 3, 2, 1, 1],
             fingers: [1, 3, 4, 2, 1, 1],
             barres: [1],
