@@ -48,6 +48,10 @@ const Scroll: FC<ScrollProps> = ({
         })
     }
 
+    const onCustomClick = () => {
+        onShowEditor()
+    }
+
     return (
         <Container>
             <Title>Basic Chord Shapes</Title>
@@ -55,7 +59,7 @@ const Scroll: FC<ScrollProps> = ({
             <RightArrow onClick={onRightClick} />
             <Body ref={scroll}>
                 <Overflow>
-                    <ChordWrapper onClick={onShowEditor}>
+                    <ChordWrapper onClick={onCustomClick}>
                         <Key>Custom</Key>
                         <Plus />
                     </ChordWrapper>
